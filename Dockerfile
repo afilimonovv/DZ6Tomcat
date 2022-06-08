@@ -1,3 +1,4 @@
+
 From tomcat:9.0
 RUN apt update
 RUN apt install maven git -y
@@ -7,9 +8,10 @@ WORKDIR /tmp/boxfuse-sample-java-war-hello/
 RUN mvn package
 WORKDIR /tmp/boxfuse-sample-java-war-hello/target/
 RUN rm -rf /usr/local/tomcat/webapps/*
-COPY /tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war /var/lib/tomcat9/webapps/
-#WORKDIR /usr/libexec/tomcat9/
-WORKDIR /var/lib/tomcat9/webapps
+#ADD hello-1.0.war /var/lib/tomcat9/webapps/hello-1.0.war
+ADD hello-1.0.war /usr/libexec/tomcat9/hello-1.0.war
+WORKDIR /usr/libexec/tomcat9/
+#WORKDIR /var/lib/tomcat9/webapps
 ENV CATALINA_BASE:   /usr/local/tomcat
 ENV CATALINA_HOME:   /usr/local/tomcat
 ENV CATALINA_TMPDIR: /usr/local/tomcat/temp
