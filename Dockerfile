@@ -3,6 +3,5 @@ RUN apt update
 RUN apt install maven git -y
 WORKDIR /tmp/
 RUN git clone https://github.com/B-Software/Ward.git
-WORKDIR /tmp/Ward/
+WORKDIR /tmp/WARD/
 RUN mvn package
-
