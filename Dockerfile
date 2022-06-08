@@ -6,7 +6,7 @@ RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 WORKDIR /tmp/boxfuse-sample-java-war-hello/
 RUN mvn package
 WORKDIR /tmp/boxfuse-sample-java-war-hello/target/
-#RUN rm -rf /usr/local/tomcat/webapps/*
+RUN rm -rf /usr/local/tomcat/webapps/*
 ADD hello-1.0.war /var/lib/tomcat9/webapps/hello-1.0.war
 WORKDIR /usr/libexec/tomcat9/
 #WORKDIR /var/lib/tomcat9/webapps
