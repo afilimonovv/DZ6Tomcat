@@ -10,9 +10,9 @@ WORKDIR /tmp/boxfuse-sample-java-war-hello/
 RUN mvn package
 WORKDIR /tmp/boxfuse-sample-java-war-hello/target/
 # RUN rm -rf /usr/local/tomcat/webapps/*
-RUN cp hello-1.0.war /var/lib/tomcat9/webapps/
-WORKDIR /usr/libexec/tomcat9/
-#WORKDIR /var/lib/tomcat9/webapps
+COPY hello-1.0.war /var/lib/tomcat9/webapps/
+#WORKDIR /usr/libexec/tomcat9/
+WORKDIR /var/lib/tomcat9/webapps
 ENV CATALINA_BASE:   /usr/local/tomcat
 ENV CATALINA_HOME:   /usr/local/tomcat
 ENV CATALINA_TMPDIR: /usr/local/tomcat/temp
