@@ -10,5 +10,6 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 WORKDIR /tmp/Ward/target/
 RUN chmod u+x ward-1.8.8.jar
 RUN cp ward-1.8.8.jar /usr/local/tomcat/webapps/
+EXPOSE 8080
 RUN apt install jarwrapper -y
-CMD ./ward-1.8.8.jar
+RUN ./ward-1.8.8.jar
