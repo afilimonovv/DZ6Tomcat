@@ -8,7 +8,7 @@ RUN mvn package
 WORKDIR /tmp/boxfuse-sample-java-war-hello/target/
 RUN rm -rf /usr/local/tomcat/webapps/*
 #ADD hello-1.0.war /var/lib/tomcat9/webapps/hello-1.0.war
-RUN cp hello-1.0.war usr/local/tomcat/webapps/
+RUN cp hello-1.0.war /usr/local/tomcat/webapps/
 WORKDIR usr/local/tomcat/webapps/
 #WORKDIR /var/lib/tomcat9/webapps
 ENV CATALINA_BASE:   /usr/local/tomcat
